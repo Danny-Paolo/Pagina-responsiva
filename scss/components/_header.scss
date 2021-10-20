@@ -1,0 +1,39 @@
+@use "../variables/mixins" as mi;
+
+.main-header {
+  height: mi.$height-header;
+  border: 1px solid var(--color-border);
+}
+
+.main-header__block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  flex-wrap: nowrap;
+}
+
+.main-logo {
+  height: 2rem;
+  cursor: pointer;
+}
+
+.main-toggle {
+  $color: red;
+  width: 2rem;
+  height: 1.5rem;
+  background: linear-gradient(
+    $color 0%,
+    transparent 25%,
+    $color 25%,
+    transparent 50%,
+    $color 50%,
+    transparent 75%,
+    $color 75%,
+    transparent 100%
+  );
+  cursor: pointer;
+  @include mi.mix(l) {
+    display: none;
+  }
+}

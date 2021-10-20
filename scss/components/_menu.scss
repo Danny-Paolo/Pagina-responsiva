@@ -1,0 +1,51 @@
+@use "../variables/mixins" as mi;
+
+.main-menu {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  @include mi.mix(l) {
+    justify-content: flex-end;
+  }
+}
+
+.main-menu__item {
+  padding: 0.5rem;
+}
+
+.main-menu__link {
+  color: mi.$white-color-menu;
+  margin-left: 1rem;
+
+  @include mi.mix(l) {
+    color: mi.$dark-color-menu;
+  }
+}
+
+.main-nav {
+  padding-top: 1rem;
+  width: 80vw;
+  position: fixed;
+  top: mi.$height-header;
+  height: calc(100vh - #{mi.$height-header});
+  right: -80vw;
+  transition: right 0.5s;
+  z-index: var(--z-fixed);
+  background: mi.$dark-color-menu;
+
+  @include mi.mix(l) {
+    position: static;
+    padding-top: 0;
+    height: auto;
+    background: white;
+  }
+
+  &.showToggle {
+    right: 0;
+  }
+}

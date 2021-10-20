@@ -1,0 +1,14 @@
+@forward "../variables/variables";
+@use "../variables/variables" as var;
+
+@mixin mix($bp) {
+  @if map-has-key(var.$breakpoints, $bp) {
+    @media screen and (min-width: map-get(var.$breakpoints,$bp)) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $bp) {
+      @content;
+    }
+  }
+}

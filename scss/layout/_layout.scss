@@ -1,0 +1,58 @@
+@use "../variables/mixins" as mi;
+
+.l-container {
+  max-width: mi.$max-width;
+  padding: 0 2rem;
+  margin: 0 auto;
+  display: flex;
+  height: auto;
+  flex-wrap: wrap;
+}
+
+.l-section {
+  margin-bottom: 2rem;
+  @include mi.mix(l) {
+    margin-bottom: 4rem;
+  }
+
+  &--diagonal {
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: #f6f4f4;
+      position: absolute;
+      z-index: var(--z-back);
+      transform: skewY(-1.2deg) scaleY(1.02);
+      @include mi.mix(l) {
+        transform: skewY(-1.2deg) scaleY(1.1);
+      }
+    }
+  }
+}
+
+// Archivos personalizados
+
+@for $i from 1 to 21 {
+  .s-#{$i*5} {
+    width: #{$i * 5%};
+  }
+}
+
+@include mi.mix(l) {
+  @for $i from 1 to 21 {
+    .l-#{$i*5} {
+      width: #{$i * 5%};
+    }
+  }
+}
+
+.center-block {
+  margin: 0 auto;
+}
+
+.center-content {
+  text-align: center;
+}

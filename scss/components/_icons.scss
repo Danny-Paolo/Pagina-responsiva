@@ -1,0 +1,14 @@
+[class*="icon-"]::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.1rem;
+}
+
+.icon-location::before {
+  background: url("/response/assets/bx-location-plus.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
